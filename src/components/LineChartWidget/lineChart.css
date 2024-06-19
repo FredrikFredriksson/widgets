@@ -1,0 +1,69 @@
+/* lineChart.css */
+.widget {
+  background-color: #191e39;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "image name symbol"
+    "image price ."
+    "graph graph priceChange";
+  grid-template-columns: 50px 1fr auto;
+  grid-template-rows: auto auto 1fr;
+  gap: 10px;
+}
+
+.coin-info {
+  display: contents;
+}
+
+.coin-image {
+  grid-area: image;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.coin-name {
+  grid-area: name;
+  color: #b9bdea;
+  text-align: center;
+  align-self: center;
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+}
+
+.coin-symbol {
+  margin-right: 10px;
+  font-size: 22px;
+  color: #6f74b0;
+  grid-area: symbol;
+  text-align: right;
+  align-self: center;
+}
+
+.coin-price {
+  padding: 0;
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  grid-area: price;
+  text-align: center;
+  align-self: center;
+}
+
+.price-change {
+    margin-right: 10px; 
+    font-size: 22px;
+  grid-area: priceChange;
+  text-align: right;
+  align-self: end;
+}
+
+.graph {
+  grid-area: graph;
+}
