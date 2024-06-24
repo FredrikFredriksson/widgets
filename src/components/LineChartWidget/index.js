@@ -9,14 +9,13 @@ const LineChartWidget = ({ coinId }) => {
   useEffect(() => {
     const fetchCoin = async () => {
       const coinsData = await getCoins();
-      console.log(coinsData)
+      console.log(coinsData);
       const coin = coinsData.find((coin) => coin.id === coinId);
       setSelectedCoin(coin);
     };
     fetchCoin();
   }, [coinId]);
 
-  
   if (!selectedCoin) return <div>Loading...</div>;
 
   const priceChangeColor =

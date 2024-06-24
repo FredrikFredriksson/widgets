@@ -37,3 +37,17 @@ export async function getHistoricalPrices(coinId) {
     return [];
   }
 }
+
+export async function getBitcoinDominance() {
+  try {
+    const response = await fetch(`${API_ENDPOINT}/global`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    return data
+  } catch (error) {
+    console.error("Error fetching Bitcoin dominance data", error);
+    return null;
+  }
+}
