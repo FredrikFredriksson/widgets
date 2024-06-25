@@ -5,6 +5,7 @@ import "./Dashboard.css";
 import LineChartWidget from "../LineChartWidget";
 import BitcoinSearchVolumeChart from "../SearchVolumeChart";
 import BitcoinDominanceChart from "../DominanceChart";
+import ParentChart from "../LineChartWidget/components/ParentChart";
 
 const Dashboard = () => {
   useEffect(() => {
@@ -21,7 +22,7 @@ const Dashboard = () => {
           data-gs-resizable="true"
         >
           <div className="grid-stack-item-content">
-            <BitcoinSearchVolumeChart />
+            <ParentChart coinId="bitcoin" />
           </div>
         </div>
         <div
@@ -30,9 +31,9 @@ const Dashboard = () => {
           data-gs-height="4"
           data-gs-resizable="true"
         >
-          <div className="grid-stack-item-content">
+          {/* <div className="grid-stack-item-content">
             <BitcoinDominanceChart />
-          </div>
+          </div> */}
         </div>
         <div
           className="grid-stack-item border-dark"

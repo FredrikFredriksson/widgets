@@ -45,7 +45,7 @@ export async function getBitcoinDominance() {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    return data
+    return data;
   } catch (error) {
     console.error("Error fetching Bitcoin dominance data", error);
     return null;
