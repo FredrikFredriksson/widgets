@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import {
-  SciChartSurface,
   NumericAxis,
   XyDataSeries,
   FastMountainRenderableSeries,
@@ -13,9 +12,7 @@ import {
 } from "../../../../services/coinService"; // Adjust path as needed
 import "./graph.css";
 
-const Graph = ({ coinId }) => {
-  const chartRef = useRef(null);
-
+const Graph = ({ coinId, sciChartSurface, wasmContext }) => {
   useEffect(() => {
     const initLineChart = async () => {
       const historicalPrices = await getHistoricalPrices(coinId);
@@ -81,16 +78,13 @@ const Graph = ({ coinId }) => {
         upWickColor: "#6495ED",
       };
 
-      const { sciChartSurface, wasmContext } = await SciChartSurface.create(
-        chartRef.current
-      );
       sciChartSurface.applyTheme(customTheme);
 
       const xAxis = new NumericAxis(wasmContext);
-      xAxis.isVisible = false; // Hide the X axis labels
-
       const yAxis = new NumericAxis(wasmContext);
-      yAxis.isVisible = false; // Hide the Y axis labels
+
+      xAxis.isVisible = false;
+      yAxis.isVisible = false;
 
       sciChartSurface.xAxes.add(xAxis);
       sciChartSurface.yAxes.add(yAxis);
@@ -118,9 +112,9 @@ const Graph = ({ coinId }) => {
     };
 
     initLineChart();
-  }, [coinId]);
+  }, [coinId, sciChartSurface, wasmContext]);
 
-  return <div ref={chartRef} className="graph" />;
+  return null; // No need to render anything directly
 };
 
 export default Graph;
